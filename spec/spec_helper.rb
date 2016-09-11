@@ -1,6 +1,9 @@
 require 'bundler/setup'
 ::Bundler.require(:default, :test)
 
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 require 'shoulda-matchers'
 ::Shoulda::Matchers.configure do |config|
   config.integrate do |with|
