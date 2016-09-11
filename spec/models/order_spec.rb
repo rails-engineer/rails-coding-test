@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Order do
-  it { should belong_to :product }
+  it { should have_many(:product_items).dependent(:destroy) }
 
-  it { should define_enum_for(:status).with(%i(daft confirmed canceled)) }
+  it { should define_enum_for(:status).with(%i(draft confirmed canceled)) }
 end

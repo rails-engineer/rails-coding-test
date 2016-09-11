@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  belongs_to :product
+  has_many :product_items, dependent: :destroy
 
-  enum status: [:daft, :confirmed, :canceled]
+  enum status: [:draft, :confirmed, :canceled]
 end
