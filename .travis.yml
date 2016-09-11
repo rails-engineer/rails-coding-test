@@ -6,8 +6,15 @@ language: ruby
 cache: bundler
 before_install: gem install bundler
 
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+
 rvm:
   - 2.2
+
+services:
+  - postgresql
 
 addons:
   code_climate:
