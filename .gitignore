@@ -10,3 +10,4 @@
 /tmp
 .idea
 .ruby-gemset
+config/database.yml
