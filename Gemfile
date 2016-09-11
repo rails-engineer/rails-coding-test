@@ -16,6 +16,7 @@ group :development, :test do
   gem 'faker'
   gem 'hirb'
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
 end
 
 group :development do
