@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: bergamotte_dba
+  password: 12345678
+
+
+development:
+  <<: *default
+  database: bergamotte_dev
+
+test:
+  <<: *default
+  database: bergamotte_test
+
+production:
+  <<: *default
+  database: bergamotte

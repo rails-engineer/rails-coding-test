@@ -1,0 +1,14 @@
+sudo: false
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
+language: ruby
+cache: bundler
+before_install: gem install bundler
+
+rvm:
+  - 2.2
+
+addons:
+  code_climate:
+    repo_token: 48e94452c54c2a971b4c62bb65a148015c1914ad3f68ba6eabacc10f8046fc06
