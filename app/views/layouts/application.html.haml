@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title RailsCodingTest
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .nav.navbar.navbar-default{'role' => 'navigation'}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{'aria-controls' => 'navbar', 'aria-expanded' => 'false',
+          'data-target' => '#navbar', 'data-toggle' => 'collapse', 'type' => 'button'}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+        #navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+
+          %ul.nav.navbar-nav.pull-right
+            - if customer_signed_in?
+              %li= link_to 'Profile', me_path
+              %li= link_to 'Sign Out', destroy_customer_session_path, method: :delete
+            - else
+              %li= link_to 'Sign In', new_customer_session_path
+
+
+    .container
+      = yield
