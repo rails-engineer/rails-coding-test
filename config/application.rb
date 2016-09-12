@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module RailsCodingTest
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
+    Dir.glob(File.join(File.dirname(__FILE__), '../lib/**/*.rb')) do |c|
+      Rails.configuration.cache_classes ? require(c) : load(c)
+    end
+
     config.generators do |g|
       g.test_framework :rspec,
                        fixtures: true,
