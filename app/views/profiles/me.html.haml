@@ -1,0 +1,16 @@
+%h1 Profile
+
+%strong Orders
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th #
+      %th Status
+      %th Total
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.id
+        %td= order.status
+        %td= order.total

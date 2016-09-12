@@ -5,4 +5,8 @@ class Order < ActiveRecord::Base
   enum status: [:draft, :confirmed, :canceled]
 
   validates :status, presence: true
+
+  def total
+    product_items.inject(0) { |a, e| a + e.amount }
+  end
 end
